@@ -1,0 +1,14 @@
+<div class="col">
+  <div class="card shadow-sm">
+    <div class="card-header" style="height: 3em">
+	    <a href="{{ project.url }}">{{ project.name }}</a>
+    </div>
+
+    <div class="card-body mb-3" style="height: 7em">
+      <p class="card-text">{% if project.readme %}{{project.readme|markdownify}}{% endif %}</p>
+    </div>
+    <div class="card-footer">
+	    Github description: {% if project.description %}{{ project.description }}{% endif %}
+    </div>
+  </div>
+</div>

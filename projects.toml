@@ -1,0 +1,9 @@
+projects = [
+"https://github.com/acdh-oeaw/apis-instance-sicprod",
+"https://github.com/acdh-oeaw/apis-instance-oebl-pfp",
+"https://github.com/acdh-oeaw/apis-instance-nsvis",
+"https://github.com/acdh-oeaw/apis-instance-gideon",
+"https://github.com/acdh-oeaw/apis-instance-nomansland-dev",
+"https://github.com/acdh-oeaw/apis-instance-frischmuth",
+"https://github.com/acdh-oeaw/apis-instance-mine"
+]
