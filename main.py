@@ -12,7 +12,8 @@ import pathlib
 import tomllib
 import json
 import markdown
-from github import Github
+import os
+from github import Github, Auth
 from github.GithubException import UnknownObjectException
 from jinja2 import Environment, FileSystemLoader
 from dataclasses import dataclass, asdict, field
@@ -34,7 +35,13 @@ class Project:
 def fetch_projects():
     projects = []
     projects_file = tomllib.loads(pathlib.Path("projects.toml").read_text())
-    g = Github()
+
+    if token := os.getenv("GITHUB_TOKEN", False):
+        print("Using authentication")
+        auth = Auth.Token(token)
+        g = Github(auth=auth)
+    else:
+        g = Github()
     for project in projects_file["projects"]:
         if project.startswith("https://github.com/"):
             repo = g.get_repo(project.replace("https://github.com/", ""))
