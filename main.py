@@ -13,6 +13,7 @@ import tomllib
 import json
 import markdown
 import os
+import random
 from github import Github, Auth
 from github.GithubException import UnknownObjectException
 from jinja2 import Environment, FileSystemLoader
@@ -68,6 +69,8 @@ def main():
     else:
         projects = fetch_projects()
         project_cache = project_cache_file.write_text(json.dumps([asdict(project) for project in projects]))
+
+    random.shuffle(projects)
 
     context = {"projects": projects}
 
