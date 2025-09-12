@@ -7,6 +7,10 @@
     <div class="card-body mb-3" style="height: 7em">
       <p class="card-text">{% if project.readme %}{{project.readme|markdownify}}{% endif %}</p>
     </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Anero Version: {% if project.pyproject_toml.project %}{% for dependency in project.pyproject_toml.project.dependencies %}{% if dependency.startswith("apis-core-rdf") %}{{ dependency }}{% endif %}{% endfor %}{% endif %}</li>
+      <li class="list-group-item">License: {{ project.github.license.name }}</li>
+    </ul>
     <div class="card-footer">
 	    Github description: {% if project.github.description %}{{ project.github.description }}{% endif %}
     </div>
