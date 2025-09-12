@@ -25,9 +25,8 @@ def markdownify(_input: str) -> str:
 
 @dataclass
 class Project:
-    name: str
-    description: str
     url: str
+    github: dict = field(default_factory=dict)
     pyproject_toml: dict = field(default_factory=dict)
     readme: str = ""
 
@@ -45,7 +44,7 @@ def fetch_projects():
     for project in projects_file["projects"]:
         if project.startswith("https://github.com/"):
             repo = g.get_repo(project.replace("https://github.com/", ""))
-            p = Project(name=repo.name, description=repo.description, url=project)
+            p = Project(github=repo.raw_data, url=project)
             try:
                 pyproject_toml = repo.get_contents("pyproject.toml")
                 p.pyproject_toml = tomllib.loads(pyproject_toml.decoded_content.decode())
