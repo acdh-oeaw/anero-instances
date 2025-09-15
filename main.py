@@ -48,7 +48,9 @@ def fetch_projects():
             p = Project(github=repo.raw_data, url=project)
             try:
                 pyproject_toml = repo.get_contents("pyproject.toml")
-                p.pyproject_toml = tomllib.loads(pyproject_toml.decoded_content.decode())
+                p.pyproject_toml = tomllib.loads(
+                    pyproject_toml.decoded_content.decode()
+                )
                 readme = repo.get_contents("README.md")
                 p.readme = readme.decoded_content.decode()
             except UnknownObjectException:
@@ -59,16 +61,18 @@ def fetch_projects():
 
 
 def main():
-    env = Environment(loader = FileSystemLoader('templates'))
+    env = Environment(loader=FileSystemLoader("templates"))
     env.filters["markdownify"] = markdownify
-    template = env.get_template('index.html')
+    template = env.get_template("index.html")
 
     project_cache_file = pathlib.Path("project_cache.json")
     if project_cache_file.exists():
         projects = json.loads(project_cache_file.read_text())
     else:
         projects = fetch_projects()
-        project_cache = project_cache_file.write_text(json.dumps([asdict(project) for project in projects]))
+        project_cache_file.write_text(
+            json.dumps([asdict(project) for project in projects])
+        )
 
     random.shuffle(projects)
 
