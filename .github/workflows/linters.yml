@@ -1,0 +1,67 @@
+# SPDX-FileCopyrightText: 2025 Birger Schacht <birger.schacht@oeaw.ac.at>
+# SPDX-License-Identifier: MIT
+name: Run linters
+
+on:
+  - push
+
+jobs:
+  ruff-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install the project
+        run: uv sync --only-dev
+
+      - name: Run ruff format
+        run: uv run ruff format --check .
+
+  ruff-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install the project
+        run: uv sync --only-dev
+
+      - name: Run ruff check
+        run: uv run ruff check .
+
+  djlint-formatter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install the project
+        run: uv sync --only-dev
+
+      - name: Run djLint formatter
+        run: uv run djlint --check .
+
+  djlint-linter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install the project
+        run: uv sync --only-dev
+
+      - name: Run djLint linter
+        run: uv run djlint --lint .
