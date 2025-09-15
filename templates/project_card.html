@@ -1,9 +1,9 @@
 <div class="col">
     <div class="card shadow-sm">
-        <div class="card-header" style="height: 3em">
+        <div class="card-header">
             <a href="{{ project.url }}">{{ project.github.name }}</a>
         </div>
-        <div class="card-body mb-3" style="height: 7em">
+        <div class="card-body mb-3">
             <p class="card-text">
                 {% if project.readme %}{{ project.readme|markdownify }}{% endif %}
             </p>
