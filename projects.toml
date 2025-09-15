@@ -5,5 +5,7 @@ projects = [
 "https://github.com/acdh-oeaw/apis-instance-gideon",
 "https://github.com/acdh-oeaw/apis-instance-nomansland-dev",
 "https://github.com/acdh-oeaw/apis-instance-frischmuth",
-"https://github.com/acdh-oeaw/apis-instance-mine"
+"https://github.com/acdh-oeaw/apis-instance-mine",
+"https://github.com/acdh-oeaw/apis-instance-tibschol",
+"https://github.com/acdh-oeaw/apis-instance-tbf"
 ]
