@@ -18,7 +18,10 @@
                 {% endif %}
             </li>
             <li class="list-group-item">License: {{ project.github.license.name }}</li>
-            <li class="list-group-item">Copyright: {{ project.copyright }}</li>
+            <li class="list-group-item">
+                Copyright:
+                {% if project.copyright %}{{ project.copyright }}{% endif %}
+            </li>
         </ul>
         <div class="card-footer">
             Github description:
