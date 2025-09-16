@@ -67,7 +67,9 @@ def main():
 
     project_cache_file = pathlib.Path("project_cache.json")
     if project_cache_file.exists():
-        projects = json.loads(project_cache_file.read_text())
+        projects = [
+            Project(**data) for data in json.loads(project_cache_file.read_text())
+        ]
     else:
         projects = fetch_projects()
         project_cache_file.write_text(
