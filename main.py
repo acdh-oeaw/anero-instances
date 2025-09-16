@@ -30,6 +30,14 @@ class Project:
     github: dict = field(default_factory=dict)
     pyproject_toml: dict = field(default_factory=dict)
     readme: str = ""
+    license: str = ""
+
+    @property
+    def copyright(self):
+        for line in self.license.split("\n"):
+            if line.startswith("Copyright"):
+                return line
+        return None
 
 
 def fetch_projects():
@@ -53,6 +61,8 @@ def fetch_projects():
                 )
                 readme = repo.get_contents("README.md")
                 p.readme = readme.decoded_content.decode()
+                if repo.license:
+                    p.license = repo.license.body
             except UnknownObjectException:
                 pass
             projects.append(p)
