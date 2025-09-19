@@ -9,5 +9,7 @@ projects = [
 "https://github.com/acdh-oeaw/apis-instance-tibschol",
 "https://github.com/acdh-oeaw/apis-instance-tbf",
 "https://github.com/acdh-oeaw/apis-instance-mpr-rdf",
-"https://github.com/acdh-oeaw/apis-instance-hmg"
+"https://github.com/acdh-oeaw/apis-instance-hmg",
+"https://github.com/acdh-oeaw/apis-oeai",
+"https://github.com/acdh-oeaw/apis-instance-jelinek"
 ]
