@@ -11,4 +11,5 @@ wheels/
 
 *.json
 /index.html
+/imprint.html
 /.env
