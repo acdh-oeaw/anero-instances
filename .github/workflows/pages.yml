@@ -28,7 +28,7 @@ jobs:
         run: |
           uv run ./main.py
           mkdir -p html
-          mv index.html html
+          mv imprint.html index.html html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Pages
