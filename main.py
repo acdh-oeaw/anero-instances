@@ -14,6 +14,7 @@ import json
 import markdown
 import os
 import random
+import httpx
 from github import Github, Auth
 from github.GithubException import UnknownObjectException
 from jinja2 import Environment, FileSystemLoader
@@ -92,6 +93,10 @@ def main():
 
     output = template.render(context)
     pathlib.Path("index.html").write_text(output)
+
+    context = {"imprint": httpx.get("https://imprint.acdh.oeaw.ac.at/25921").text}
+    output = template.render(context)
+    pathlib.Path("imprint.html").write_text(output)
 
 
 if __name__ == "__main__":
