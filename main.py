@@ -62,8 +62,8 @@ def fetch_projects():
                 )
                 readme = repo.get_contents("README.md")
                 p.readme = readme.decoded_content.decode()
-                if repo.license:
-                    p.license = repo.license.body
+                license = repo.get_contents("LICENSE")
+                p.license = license.decoded_content.decode()
             except UnknownObjectException:
                 pass
             projects.append(p)
