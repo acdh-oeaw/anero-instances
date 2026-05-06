@@ -12,5 +12,6 @@ projects = [
 "https://github.com/acdh-oeaw/apis-instance-hmg",
 "https://github.com/acdh-oeaw/apis-oeai",
 "https://github.com/acdh-oeaw/apis-instance-jelinek",
-"https://github.com/acdh-oeaw/apis-instance-inscribing-authority"
+"https://github.com/acdh-oeaw/apis-instance-inscribing-authority",
+"https://github.com/acdh-oeaw/apis-instance-viecpro"
 ]
